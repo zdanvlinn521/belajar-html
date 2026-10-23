@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pusat Konseling & Layanan Pengaduan Ramah Siswa (BK Online)</title>
+    <!-- Google Fonts: Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* --- RESET & VARIABLES --- */
+      :root {
+        --primary-color: #4a90e2;
+        --primary-dark: #357abd;
+        --secondary-color: #50e3c2;
+        --accent-color: #ff6b6b;
+        --bg-light: #f4f8fb;
+        --surface-white: #ffffff;
+        --text-dark: #2c3e50;
+        --text-muted: #7f8c8d;
+        --border-color: #e2e8f0;
+        --radius: 12px;
+        --shadow:
+          0 10px 25px -5px rgba(0, 0, 0, 0.05),
+          0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: var(--text-muted);
+        margin-bottom: 40px;
+        font-size: 1rem;
+      }
+
+      /* --- NAVBAR --- */
+      .navbar {
+        background-color: var(--surface-white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--primary-color);
+      }
+
+      .logo i {
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 25px;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        color: var(--text-dark);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .btn-emergency {
+        background-color: var(--accent-color);
+        color: white !important;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: var(--transition);
+      }
+
+      .btn-emergency:hover {
+        background-color: #e05252;
+        transform: translateY(-2px);
+      }
+
+      /* --- HERO BANNER --- */
+      .hero {
+        padding: 80px 0 60px;
+        background: linear-gradient(135deg, #ebf3fa 0%, #f4f8fb 100%);
+        overflow: hidden;
+      }
+
+      .hero-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .hero-content h1 {
+        font-size: 2.8rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        color: var(--text-dark);
+      }
+
+      .hero-content h1 span {
+        color: var(--primary-color);
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin-bottom: 30px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px 28px;
+        border-radius: 30px;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        transition: var(--transition);
+        display: inline-block;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        padding: 10px 26px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: var(--transition);
+        display: inline-block;
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .hero-image {
+        text-align: center;
+        position: relative;
+      }
+
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+      }
+
+      /* --- EMERGENCY CONTACT BANNER --- */
+      .emergency-section {
+        margin-top: -30px;
+        position: relative;
+        z-index: 10;
+        margin-bottom: 60px;
+      }
+
+      .emergency-card {
+        background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+        color: white;
+        border-radius: var(--radius);
+        padding: 25px 35px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 10px 20px rgba(255, 107, 107, 0.2);
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .emergency-info {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .emergency-info i {
+        font-size: 2.5rem;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 15px;
+        border-radius: 50%;
+      }
+
+      .emergency-text h3 {
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+      }
+
+      .emergency-text p {
+        opacity: 0.9;
+        font-size: 0.95rem;
+      }
+
+      .emergency-actions {
+        display: flex;
+        gap: 15px;
+      }
+
+      .btn-call {
+        background: white;
+        color: var(--accent-color);
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: var(--transition);
+      }
+
+      .btn-call:hover {
+        background: var(--bg-light);
+        transform: scale(1.05);
+      }
+
+      /* --- ARTIKEL & TIPS --- */
+      .articles-section {
+        padding: 40px 0 60px;
+      }
+
+      .articles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .article-card {
+        background-color: var(--surface-white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .article-img {
+        height: 180px;
+        background-color: #ddd;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .article-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--primary-color);
+        padding: 4px 12px;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .article-body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .article-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--text-dark);
+      }
+
+      .article-excerpt {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 15px;
+        flex-grow: 1;
+      }
+
+      .article-link {
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .article-link:hover {
+        gap: 10px;
+      }
+
+      /* --- JADWAL GURU BK --- */
+      .schedule-section {
+        padding: 40px 0 60px;
+        background-color: var(--surface-white);
+        border-radius: var(--radius);
+        margin-bottom: 60px;
+        box-shadow: var(--shadow);
+      }
+
+      .table-responsive {
+        overflow-x: auto;
+        padding: 0 20px;
+      }
+
+      .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      .schedule-table th,
+      .schedule-table td {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .schedule-table th {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        font-weight: 600;
+      }
+
+      .schedule-table tr:hover {
+        background-color: #f8fafc;
+      }
+
+      .teacher-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .teacher-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .status-badge {
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .status-online {
+        background-color: #e6f4ea;
+        color: #137333;
+      }
+
+      /* --- FORM KONSELING --- */
+      .form-section {
+        padding: 40px 0 80px;
+      }
+
+      .form-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: var(--surface-white);
+        padding: 40px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border-top: 5px solid var(--primary-color);
+      }
+
+      .form-notice {
+        background-color: #ebf3fa;
+        border-left: 4px solid var(--primary-color);
+        padding: 12px 15px;
+        border-radius: 0 8px 8px 0;
+        margin-bottom: 25px;
+        font-size: 0.88rem;
+        color: var(--text-dark);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 0.95rem;
+        transition: var(--transition);
+        outline: none;
+        background-color: #fafafa;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary-color);
+        background-color: #fff;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+
+      .radio-group,
+      .checkbox-group {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 5px;
+      }
+
+      .radio-option,
+      .checkbox-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #fafafa;
+        padding: 10px 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 0.9rem;
+      }
+
+      .radio-option:hover,
+      .checkbox-option:hover {
+        border-color: var(--primary-color);
+        background: #f4f8fb;
+      }
+
+      .radio-option input,
+      .checkbox-option input {
+        accent-color: var(--primary-color);
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        background-color: #1e293b;
+        color: #94a3b8;
+        padding: 40px 0 20px;
+        font-size: 0.9rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-col h4 {
+        color: white;
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+      }
+
+      .footer-col p {
+        line-height: 1.5;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        border-top: 1px solid #334155;
+        padding-top: 20px;
+        font-size: 0.85rem;
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 768px) {
+        .hero-wrapper {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero-buttons {
+          justify-content: center;
+        }
+
+        .emergency-card {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .emergency-info {
+          flex-direction: column;
+        }
+
+        .nav-links {
+          display: none; /* Dapat dikembangkan dengan menu hamburger JS */
+        }
+
+        .form-container {
+          padding: 25px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="#" class="logo">
+          <i class="fa-solid fa-heart-pulse"></i> BK Online
+        </a>
+        <div class="nav-links">
+          <a href="#home">Beranda</a>
+          <a href="#artikel">Tips & Edukasi</a>
+          <a href="#jadwal">Jadwal Piket</a>
+          <a href="#konseling">Pendaftaran</a>
+        </div>
+        <a href="#darurat" class="btn-emergency">
+          <i class="fa-solid fa-phone-flip"></i> Kontak Darurat
+        </a>
+      </div>
+    </nav>
+
+    <!-- HERO BANNER -->
+    <section class="hero" id="home">
+      <div class="container hero-wrapper">
+        <div class="hero-content">
+          <h1>Ruang Aman untuk <span>Bercerita</span> dan Tumbuh</h1>
+          <p>
+            Kami siap mendengarkan setiap keluh kesahmu tanpa prasangka. Layanan
+            pengaduan dan konseling siswa yang aman, nyaman, dan dijamin
+            kerahasiaannya.
+          </p>
+          <div class="hero-buttons">
+            <a href="#konseling" class="btn-primary"
+              ><i class="fa-regular fa-paper-plane"></i> Daftar Konseling</a
+            >
+            <a href="#artikel" class="btn-secondary">Baca Tips Belajar</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80"
+            alt="Siswa tersenyum ramah"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- SEMATAN KONTAK DARURAT -->
+    <section class="container emergency-section" id="darurat">
+      <div class="emergency-card">
+        <div class="emergency-info">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <div class="emergency-text">
+            <h3>Butuh Bantuan Segera / Kondisi Darurat?</h3>
+            <p>
+              Jangan ragu, tim Bimbingan Konseling dan Layanan Krisis siap
+              membantumu saat ini juga.
+            </p>
+          </div>
+        </div>
+        <div class="emergency-actions">
+          <a href="tel:08001234567" class="btn-call"
+            ><i class="fa-solid fa-phone"></i> Call Center BK</a
+          >
+          <a
+            href="https://wa.me/628123456789"
+            class="btn-call"
+            style="color: #25d366"
+            ><i class="fa-brands fa-whatsapp"></i> Chat WhatsApp</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTIKEL MOTIVASI & TIPS BELAJAR -->
+    <section class="container articles-section" id="artikel">
+      <h2 class="section-title">Tips & Artikel Motivasi</h2>
+      <p class="section-subtitle">
+        Temukan inspirasi dan metode belajar yang sehat untuk mendukung harimu
+      </p>
+
+      <div class="articles-grid">
+        <!-- Kartu 1 -->
+        <div class="article-card">
+          <div
+            class="article-img"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=500&q=80&quot;);
+            "
+          >
+            <span class="article-badge">Tips Belajar</span>
+          </div>
+          <div class="article-body">
+            <h3 class="article-title">
+              Metode Pomodoro: Belajar Efektif Tanpa Stress
+            </h3>
+            <p class="article-excerpt">
+              Pelajari cara membagi waktu fokus dan istirahat agar otak tetap
+              segar saat menghadapi ujian.
+            </p>
+            <a href="#" class="article-link"
+              >Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Kartu 2 -->
+        <div class="article-card">
+          <div
+            class="article-img"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=500&q=80&quot;);
+            "
+          >
+            <span class="article-badge">Kesehatan Mental</span>
+          </div>
+          <div class="article-body">
+            <h3 class="article-title">
+              Mengatasi Rasa Cemas Saat Tampil di Depan Kelas
+            </h3>
+            <p class="article-excerpt">
+              Beberapa teknik pernapasan sederhana yang bisa kamu lakukan untuk
+              meredakan gugup secara instan.
+            </p>
+            <a href="#" class="article-link"
+              >Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Kartu 3 -->
+        <div class="article-card">
+          <div
+            class="article-img"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80&quot;);
+            "
+          >
+            <span class="article-badge">Pengembangan Diri</span>
+          </div>
+          <div class="article-body">
+            <h3 class="article-title">Membangun Pertemanan Sehat di Sekolah</h3>
+            <p class="article-excerpt">
+              Bagaimana menentukan batasan diri (boundaries) dan memilih
+              lingkungan pergaulan yang mendukungmu.
+            </p>
+            <a href="#" class="article-link"
+              >Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABEL JADWAL PIKET GURU BK -->
+    <section class="container schedule-section" id="jadwal">
+      <h2 class="section-title">Jadwal Konsultasi Guru BK</h2>
+      <p class="section-subtitle">
+        Pilih jadwal piket guru yang nyaman untuk sesi konselingmu
+      </p>
+
+      <div class="table-responsive">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Hari</th>
+              <th>Guru BK / Konselor</th>
+              <th>Jam Layanan</th>
+              <th>Ruangan / Ruang Virtual</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Senin</strong></td>
+              <td>
+                <div class="teacher-info">
+                  <div class="teacher-avatar">SP</div>
+                  <span>Siti Rahmawati, S.Pd., M.Psi.</span>
+                </div>
+              </td>
+              <td>08:00 - 14:00 WIB</td>
+              <td>Ruang BK 1 / Google Meet</td>
+              <td><span class="status-badge status-online">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td><strong>Selasa</strong></td>
+              <td>
+                <div class="teacher-info">
+                  <div class="teacher-avatar">BP</div>
+                  <span>Budi Santoso, S.Pd.</span>
+                </div>
+              </td>
+              <td>08:00 - 14:00 WIB</td>
+              <td>Ruang BK 2 / Zoom</td>
+              <td><span class="status-badge status-online">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td><strong>Rabu</strong></td>
+              <td>
+                <div class="teacher-info">
+                  <div class="teacher-avatar">AP</div>
+                  <span>Anita Wijaya, S.Psi.</span>
+                </div>
+              </td>
+              <td>09:00 - 15:00 WIB</td>
+              <td>Ruang Konseling Privat</td>
+              <td><span class="status-badge status-online">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td><strong>Kamis</strong></td>
+              <td>
+                <div class="teacher-info">
+                  <div class="teacher-avatar">SP</div>
+                  <span>Siti Rahmawati, S.Pd., M.Psi.</span>
+                </div>
+              </td>
+              <td>08:00 - 14:00 WIB</td>
+              <td>Ruang BK 1 / WhatsApp Chat</td>
+              <td><span class="status-badge status-online">Tersedia</span></td>
+            </tr>
+            <tr>
+              <td><strong>Jumat</strong></td>
+              <td>
+                <div class="teacher-info">
+                  <div class="teacher-avatar">BP</div>
+                  <span>Budi Santoso, S.Pd.</span>
+                </div>
+              </td>
+              <td>08:30 - 11:30 WIB</td>
+              <td>Ruang BK 2 / Google Meet</td>
+              <td><span class="status-badge status-online">Tersedia</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FORMULIR PENDAFTARAN KONSELING RAHASIA -->
+    <section class="container form-section" id="konseling">
+      <div class="form-container">
+        <h2 class="section-title" style="text-align: left">
+          Formulir Konseling Rahasia
+        </h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px">
+          Isi formulir di bawah ini. Identitas dan privasimu dijamin 100% aman
+          bersama kami.
+        </p>
+
+        <div class="form-notice">
+          <i
+            class="fa-solid fa-user-shield"
+            style="font-size: 1.2rem; color: var(--primary-color)"
+          ></i>
+          <span
+            ><strong>Privasi Terjamin:</strong> Data pendaftaran ini hanya akan
+            dibaca oleh Guru BK yang kamu pilih.</span
+          >
+        </div>
+
+        <form
+          action="#"
+          method="POST"
+          onsubmit="
+            event.preventDefault();
+            alert('Pendaftaran berhasil dikirim! Guru BK akan menghubungimu.');
+          "
+        >
+          <!-- Nama & Kelas -->
+          <div class="form-group">
+            <label for="nama">Nama Lengkap / Samaran (Inisial)</label>
+            <input
+              type="text"
+              id="nama"
+              class="form-control"
+              placeholder="Contoh: Budi atau 'Siswa X'"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="kelas">Kelas / Tingkat</label>
+            <select id="kelas" class="form-control" required>
+              <option value="" disabled selected>-- Pilih Kelas --</option>
+              <option value="10">Kelas X (Sepuluh)</option>
+              <option value="11">Kelas XI (Sebelas)</option>
+              <option value="12">Kelas XII (Dua Belas)</option>
+            </select>
+          </div>
+
+          <!-- Kontak -->
+          <div class="form-group">
+            <label for="kontak"
+              >Nomor WhatsApp / ID Telegram (Untuk dihubungi)</label
+            >
+            <input
+              type="text"
+              id="kontak"
+              class="form-control"
+              placeholder="08xxxxxxxxxx"
+              required
+            />
+          </div>
+
+          <!-- Kategori Topik (Dropdown) -->
+          <div class="form-group">
+            <label for="kategori">Topik yang Ingin Diceritakan</label>
+            <select id="kategori" class="form-control" required>
+              <option value="" disabled selected>
+                -- Pilih Topik Utama --
+              </option>
+              <option value="akademik">Masalah Belajar / Akademik</option>
+              <option value="pertemanan">Hubungan Pertemanan / Sosial</option>
+              <option value="keluarga">Masalah Keluarga / Rumah</option>
+              <option value="karir">Konsultasi Karir / Perguruan Tinggi</option>
+              <option value="pengaduan">
+                Pengaduan Bullying / Perundungan
+              </option>
+              <option value="lainnya">Lainnya</option>
+            </select>
+          </div>
+
+          <!-- Metode Konseling (Radio Button) -->
+          <div class="form-group">
+            <label>Metode Konseling yang Diinginkan:</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="metode" value="tatap_muka" checked />
+                <i class="fa-solid fa-users"></i> Tatap Muka (Di Ruang BK)
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="metode" value="online_chat" />
+                <i class="fa-brands fa-whatsapp"></i> Online Chat (WhatsApp)
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="metode" value="video_call" />
+                <i class="fa-solid fa-video"></i> Video Call (GMeet/Zoom)
+              </label>
+            </div>
+          </div>
+
+          <!-- Pilih Guru BK (Radio Button) -->
+          <div class="form-group">
+            <label>Pilih Guru BK / Konselor:</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="guru" value="Ibu Siti" checked /> Ibu
+                Siti Rahmawati
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="guru" value="Bapak Budi" /> Bapak Budi
+                Santoso
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="guru" value="Ibu Anita" /> Ibu Anita
+                Wijaya
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="guru" value="Bebas" /> Siapa Saja
+                (Bebas)
+              </label>
+            </div>
+          </div>
+
+          <!-- Pesan Singkat -->
+          <div class="form-group">
+            <label for="pesan">Pesan Singkat / Cerita Awal (Opsional)</label>
+            <textarea
+              id="pesan"
+              class="form-control"
+              rows="4"
+              placeholder="Tulis sedikit gambaran tentang apa yang ingin kamu ceritakan..."
+            ></textarea>
+          </div>
+
+          <!-- Checkbox Kerahasiaan -->
+          <div class="form-group">
+            <label
+              class="checkbox-option"
+              style="border: none; background: none; padding: 0"
+            >
+              <input type="checkbox" required />
+              Saya menyetujui bahwa informasi ini dikirim secara aman untuk
+              keperluan konseling.
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="btn-primary"
+            style="width: 100%; border-radius: 8px; margin-top: 10px"
+          >
+            Kirim Pendaftaran Rahasia
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-content">
+        <div class="footer-col">
+          <h4>BK Online Sekolah</h4>
+          <p>
+            Layanan Bimbingan Konseling & Pengaduan Ramah Siswa. Hadir untuk
+            mendampingi langkah belajar dan menjaga kesehatan mentalmu.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <p><a href="#home">Beranda</a></p>
+          <p><a href="#artikel">Artikel & Tips</a></p>
+          <p><a href="#jadwal">Jadwal Piket</a></p>
+          <p><a href="#konseling">Daftar Konseling</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Jam Operasional</h4>
+          <p>Senin - Jumat: 07:30 - 15:30 WIB</p>
+          <p>Layanan Pengaduan Web: 24/7 (Respon pada jam kerja)</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 BK Online - Tim Bimbingan Konseling Sekolah. All Rights
+          Reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
