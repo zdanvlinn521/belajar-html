@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BK Online - Rumah Siswa</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://tailwindcss.com"></script>
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- 1. NAVIGATION BAR -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-teal-600 flex items-center gap-2">
+                        <i class="fa-solid fa-user-shield"></i> BK Online
+                    </span>
+                </div>
+                <div class="flex items-center space-x-6 text-sm font-medium text-slate-600">
+                    <a href="#home" class="hover:text-teal-600 transition">Beranda</a>
+                    <a href="#artikel" class="hover:text-teal-600 transition">Artikel</a>
+                    <a href="#jadwal" class="hover:text-teal-600 transition">Jadwal Guru</a>
+                    <a href="#konseling" class="hover:text-teal-600 transition">Konseling</a>
+                    <a href="#darurat" class="bg-rose-500 text-white px-4 py-2 rounded-full hover:bg-rose-600 transition shadow-sm">Darurat</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO BANNER -->
+    <header id="home" class="relative bg-gradient-to-br from-teal-500 to-emerald-600 text-white py-20 px-4 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="bg-teal-400/30 text-teal-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Ruang Aman Siswa</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold mt-4 mb-6 leading-tight">
+                Kamu Tidak Sendirian. <br>Kami Di Sini Untuk Mendengar.
+            </h1>
+            <p class="text-lg text-teal-50/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Layanan konseling daring yang aman, nyaman, dan **100% rahasia** untuk membantu perkembangan akademik, sosial, serta kesehatan mentalmu di sekolah.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#konseling" class="bg-white text-teal-700 font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-teal-50 transition transform hover:-translate-y-0.5">
+                    Mulai Konseling Rahasia
+                </a>
+                <a href="#jadwal" class="border border-teal-200 text-white font-medium px-6 py-3 rounded-lg hover:bg-white/10 transition">
+                    Lihat Jadwal Piket
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+
+        <!-- 3. KARTU ARTIKEL MOTIVASI & TIPS BELAJAR -->
+        <section id="artikel">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Inspirasi & Tips Belajar</h2>
+                <p class="text-slate-500 mt-2">Temukan motivasi dan strategi terbaik untuk masa depanmu.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Kartu 1 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden border border-slate-100">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full">Tips Belajar</span>
+                        <h3 class="text-xl font-bold mt-4 mb-2 text-slate-900 hover:text-teal-600 transition cursor-pointer">Teknik Pomodoro: Belajar Efektif Tanpa Burnout</h3>
+                        <p class="text-slate-600 text-sm line-clamp-3 mb-4">Atur waktu belajarmu dengan interval 25 menit fokus dan 5 menit istirahat. Cara ini terbukti ampuh menjaga konsentrasi otak tetap prima.</p>
+                        <a href="#" class="text-sm font-semibold text-teal-600 hover:text-teal-700 inline-flex items-center gap-1">Baca selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+
+                <!-- Kartu 2 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden border border-slate-100">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-purple-600 bg-purple-50 px-2.5 py-1 rounded-full">Motivasi</span>
+                        <h3 class="text-xl font-bold mt-4 mb-2 text-slate-900 hover:text-teal-600 transition cursor-pointer">Menghadapi Kegagalan Nilai Ujian Sebagai Batu Loncatan</h3>
+                        <p class="text-slate-600 text-sm line-clamp-3 mb-4">Nilai satu ujian tidak menentukan masa depanmu. Pelajari kesalahanmu, evaluasi strategi belajar, dan bangkit kembali dengan mental yang lebih kuat.</p>
+                        <a href="#" class="text-sm font-semibold text-teal-600 hover:text-teal-700 inline-flex items-center gap-1">Baca selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+
+                <!-- Kartu 3 -->
+                <article class="bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden border border-slate-100">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">Kesehatan Mental</span>
+                        <h3 class="text-xl font-bold mt-4 mb-2 text-slate-900 hover:text-teal-600 transition cursor-pointer">Mengelola Stres dan Kecemasan Menjelang Ujian Akhir</h3>
+                        <p class="text-slate-600 text-sm line-clamp-3 mb-4">Jangan lupakan tidur yang cukup dan olahraga ringan. Pikiran yang tenang adalah kunci utama untuk menyerap informasi secara maksimal.</p>
+                        <a href="#" class="text-sm font-semibold text-teal-600 hover:text-teal-700 inline-flex items-center gap-1">Baca selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 4. TABEL JADWAL PIKET GURU BK -->
+        <section id="jadwal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Jadwal Piket Guru BK</h2>
+                <p class="text-slate-500 mt-2">Pintu ruang BK selalu terbuka. Silakan kunjungi guru pilihanmu sesuai jadwal berikut.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 text-slate-600 text-sm font-semibold border-b border-slate-100">
+                                <th class="p-4 pl-6">Hari</th>
+                                <th class="p-4">Nama Guru BK</th>
+                                <th class="p-4">Jam Operasional</th>
+                                <th class="p-4 pr-6 text-center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-700 divide-y divide-slate-100">
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-4 pl-6 font-medium text-slate-900">Senin</td>
+                                <td class="p-4">Dra. Sri Wahyuni, M.Pd.</td>
+                                <td class="p-4">07:30 - 14:00 WIB</td>
+                                <td class="p-4 pr-6 text-center"><span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-medium">Tersedia</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-4 pl-6 font-medium text-slate-900">Selasa</td>
+                                <td class="p-4">Ahmad Fauzi, S.Psi.</td>
+                                <td class="p-4">07:30 - 14:00 WIB</td>
+                                <td class="p-4 pr-6 text-center"><span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-medium">Tersedia</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-4 pl-6 font-medium text-slate-900">Rabu</td>
+                                <td class="p-4">Rina Kartika, S.Pd.</td>
+                                <td class="p-4">07:30 - 14:00 WIB</td>
+                                <td class="p-4 pr-6 text-center"><span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-medium">Tersedia</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
+                                <td class="p-4 pl-6 font-medium text-slate-900">Kamis</td>
+                                <td class="p-4">Ahmad Fauzi, S.Psi.</td>
+                                <td class="p-4">07:30 - 14:00 WIB</td>
+                                <td class="p-4 pr-6 text-center"><span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-medium">Tersedia</span></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50">
